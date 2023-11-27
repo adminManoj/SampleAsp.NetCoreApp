@@ -1,0 +1,17 @@
+﻿@page
+@using System.Data.SqlClient;
+@using SampleWebApp.Model;
+@inject IConfiguration _configuration
+@{
+
+    try{
+        string id = Request.Query["id"];
+        DAL dal = new DAL();
+        int i = dal.DeleteUser(id, _configuration);
+    }
+    catch(Exception ex)
+    {
+            
+    }
+    Response.Redirect("/Client/Index");
+}
